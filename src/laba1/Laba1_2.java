@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Laba1_2 {
     public static void main(String[] args) {
-        int width = 10;
+        int width = 5;
         int height = 10;
         int[][] array = new int[width][height];
 
@@ -19,42 +19,25 @@ public class Laba1_2 {
             }
         }
 
-//        for (int i = 0; i <= array.length; i++) {
-//            if (i == 0) System.out.print("\t"); else System.out.print((i-1) + "\t");
-//        }
-//        System.out.println("");
-//        for (int i = 0; i <= array.length; i++) {
-//            if (i == 0) System.out.print("\t"); else System.out.print("-\t");
-//        }
-//        System.out.println("");
-//        for (int i = 0; i < array.length; i++) {
-//            System.out.print(i + " | ");
-//            for (int j = 0; j < array[i].length; j++) {
-//                System.out.print(array[i][j] + "\t");
-//            }
-//            System.out.print('\n');
-//        }
+        for (int i = 0; i <= array[0].length; i++) {
+            if (i == 0) System.out.print("\t"); else System.out.print((i-1) + "\t");
+        }
+        System.out.println("");
+        for (int i = 0; i <= array[0].length; i++) {
+            if (i == 0) System.out.print("\t"); else System.out.print("-\t");
+        }
+        System.out.println("");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(i + " | ");
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.print('\n');
+        }
 
         long timeStart = System.nanoTime();
         int amount = calculatePositive(array);
         long timeEnd = System.nanoTime();
-
-//        System.out.println("\nИзмененный массив: ");
-//        for (int i = 0; i <= array.length; i++) {
-//            if (i == 0) System.out.print("\t"); else System.out.print((i-1) + "\t");
-//        }
-//        System.out.println("");
-//        for (int i = 0; i <= array.length; i++) {
-//            if (i == 0) System.out.print("\t"); else System.out.print("-\t");
-//        }
-//        System.out.println("");
-//        for (int i = 0; i < array.length; i++) {
-//            System.out.print(i + " | ");
-//            for (int j = 0; j < array[i].length; j++) {
-//                System.out.print(array[i][j] + "\t");
-//            }
-//            System.out.print('\n');
-//        }
 
         System.out.println("\nКоличество положительных элементов: " + amount + "\n");
 
@@ -65,9 +48,9 @@ public class Laba1_2 {
 
         int amontPositive = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
+            for (int j = 0; j < array[i].length; j++) {
                 if ((i % 2 != 0) && (j % 2 != 0) && array[i][j] > 0) ++amontPositive;
-                }
+            }
         }
 
         return amontPositive;
