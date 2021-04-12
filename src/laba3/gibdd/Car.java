@@ -16,12 +16,4 @@ public class Car {
     public int getFine() {
         return fine;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFine(int fine) {
-        this.fine = fine;
-    }
 }

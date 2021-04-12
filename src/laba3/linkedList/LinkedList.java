@@ -21,28 +21,6 @@ public class LinkedList<T> {
         size++;
     }
 
-    public void removeFromBack(){
-        if (!isEmpty()){
-            if(tail == null){
-                System.out.println("Список пуст!!!");
-            }
-            else {
-                Node<T> temp = head;
-                Node<T> t = new Node<>();
-                while (temp.getNext() != null){
-                    t = temp;
-                    temp = temp.getNext();
-                }
-                tail = t;
-                tail.setNext(null);
-            }
-            size--;
-        }
-        else{
-            System.out.println("Список пуст!!!");
-        }
-    }
-
     public void deleteByIndex(int position)
     {
         if (head == null)
@@ -71,7 +49,7 @@ public class LinkedList<T> {
             }
         } else {
             for (Node<T> x = head; x != null; x = x.getNext()) {
-                if (data.equals(x.getData()))
+                if (data.hashCode() == x.getData().hashCode())
                     return index;
                 index++;
             }
