@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Laba1_1 {
     public static void main(String[] args) {
-        int width = 30;
-        int height = 30;
+        int width = 1000;
+        int height = 1000;
         int[][] array = new int[width][height];
 
         for (int i = 0; i < width; i++) {

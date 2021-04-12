@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class Laba1_2 {
     public static void main(String[] args) {
         int width = 5;
-        int height = 10;
+        int height = 7;
         int[][] array = new int[width][height];
 
         for (int i = 0; i < width; i++) {

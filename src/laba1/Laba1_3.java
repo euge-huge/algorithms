@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Laba1_3 {
     public static void main(String[] args) {
-        int length = 6000;
+        int length = 70000;
         long[] array = new long[length];
 
         for (int i = 0; i < array.length; i++) {
