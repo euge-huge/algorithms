@@ -68,9 +68,9 @@ public class Laba3 {
         System.out.println("---------------------------------------");
 
         if (foundedIdx != -1) {
-            System.out.println("Инспектор - " + findInspector.getName() + " - " + findInspector.getSalary() + " есть в базе данных!");
+            System.out.println("Инспектор - " + findInspector.getName() + " - с з/п " + findInspector.getSalary() + " есть в базе данных!");
         } else {
-            System.out.println("Инспектора - " + findInspector.getName() + " - " + findInspector.getSalary() + " - нет в базе данных!");
+            System.out.println("Инспектора - " + findInspector.getName() + " - с з/п " + findInspector.getSalary() + " - нет в базе данных!");
         }
     }
 }
