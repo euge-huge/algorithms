@@ -1,10 +1,9 @@
 package laba4;
 
-import javax.swing.*;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class SortAlgorithms {
+    //    линейный для несортированного
     public static boolean lineForDis(int[] arr, int key) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == key) {
@@ -14,6 +13,7 @@ public class SortAlgorithms {
         return false;
     }
 
+    //    быстрый линейный для несортированного
     public static boolean fastLineForDis(int[] arr, int key) {
         if (arr[arr.length - 1] == key) return true;
         int temp = arr[arr.length - 1];
@@ -30,11 +30,11 @@ public class SortAlgorithms {
             return true;
         }
 
-
         arr[arr.length - 1] = temp;
         return false;
     }
 
+    //    быстрый линейный для сортированного
     public static boolean fastLineForOrd(int[] arr, int key) {
         if (arr[arr.length - 1] == key) return true;
         int temp = arr[arr.length - 1];
@@ -55,49 +55,41 @@ public class SortAlgorithms {
         return false;
     }
 
+    //    бинарный для сортированного
     public static boolean binForOrd(int[] arr, int key) {
         int firstIndex = 0;
         int lastIndex = arr.length - 1;
 
-        // условие прекращения (элемент не представлен)
         while (firstIndex <= lastIndex) {
             int middleIndex = (firstIndex + lastIndex) / 2;
-            // если средний элемент - целевой элемент, вернуть его индекс
             if (arr[middleIndex] == key) {
                 return true;
-            }
-
-            // если средний элемент меньше
-            // направляем наш индекс в middle+1, убирая первую часть из рассмотрения
-            else if (arr[middleIndex] < key)
+            } else if (arr[middleIndex] < key)
                 firstIndex = middleIndex + 1;
-
-                // если средний элемент больше
-                // направляем наш индекс в middle-1, убирая вторую часть из рассмотрения
             else if (arr[middleIndex] > key)
                 lastIndex = middleIndex - 1;
-
         }
         return false;
     }
 
+    //    блочный для сортированного
     public static boolean blockForOrd(int[] arr, int key) {
-        int divider = 4;
-        int celoe = arr.length / divider;
-        int ostatok = arr.length % divider;
+        int div = 4;
+        int int_amount = arr.length / div;
+        int rem = arr.length % div;
 
-        if (celoe == 0) {
+        if (int_amount == 0) {
             return SortAlgorithms.lineForDis(arr, key);
         }
-        for (int i = 0; i < divider; i++) {
-            if (arr[celoe * i + celoe - 1] == key)
+        for (int i = 0; i < div; i++) {
+            if (arr[int_amount * i + int_amount - 1] == key)
                 return true;
-            if (arr[celoe * i + celoe - 1] > key) {
-                int[] newArr = Arrays.copyOf(Arrays.copyOfRange(arr, celoe * i, arr.length), celoe);
+            if (arr[int_amount * i + int_amount - 1] > key) {
+                int[] newArr = Arrays.copyOf(Arrays.copyOfRange(arr, int_amount * i, arr.length), int_amount);
                 return SortAlgorithms.blockForOrd(newArr, key);
             }
-            if (ostatok != 0) {
-                int[] newArr = Arrays.copyOf(Arrays.copyOfRange(arr, divider * celoe, arr.length), ostatok);
+            if (rem != 0) {
+                int[] newArr = Arrays.copyOf(Arrays.copyOfRange(arr, div * int_amount, arr.length), rem);
                 if (SortAlgorithms.blockForOrd(newArr, key)) {
                     return true;
                 }
